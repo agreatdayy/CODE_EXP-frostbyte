@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Platform, TouchableOpacity, Text, Alert, View } from 'react-native';
 import React from 'react';
+
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -65,6 +66,7 @@ export default function HomeScreen() {
             <Text style={styles.buttonText}>FAQs</Text>
           </View>
         </TouchableOpacity>
+
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start', 
     marginBottom: 6,
+    gap: 8,
   },
   stepContainer: {
     gap: 8,
