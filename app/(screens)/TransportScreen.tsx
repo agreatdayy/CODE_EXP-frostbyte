@@ -5,13 +5,9 @@ import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import {Linking} from 'react-native';
 
 
-export type RootStackParamList = {
-  screen: { id: string };
-};
-export default function HomeAppliancesScreen({ navigation }) {
+export default function TransportScreen({ navigation }) {
 
     return (
       <ParallaxScrollView
@@ -26,7 +22,7 @@ export default function HomeAppliancesScreen({ navigation }) {
         <View style={styles.topbox}>
           <View style={styles.topBoxContainer}>
             <Text style={styles.bigText}>Get DinoMiles</Text>
-            <Text style={styles.SecondLine}>on energy-saving appliances</Text>
+            <Text style={styles.SecondLine}>by taking public transport</Text>
           </View>
           <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.bigDino} />
         </View>
@@ -53,55 +49,72 @@ export default function HomeAppliancesScreen({ navigation }) {
         <ThemedView style={styles.titleContainer}>
           <ThemedText type="title">Past Transactions</ThemedText>
         </ThemedView>
+
           <ThemedView style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button}>
             <View style={styles.buttonContent}>
               <View style = {styles.PointEventContainer}>
-                <Image source={require('@/assets/images/shopping-cart.jpg')} style={styles.image} />
-                <Text style={styles.buttonText}>Courts</Text>
-              </View>
-              <View style = {styles.AddPointsContainer}>
-                <Text style={styles.AddPointsText}>+50</Text>
-                <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
-              </View>
-            </View>
-            <Text style={styles.AddPointsSecondLine}>25 May 2024</Text>
-            <Text style={styles.AddPointsSecondLine}>-$125.00</Text>
-          </TouchableOpacity>
-        </ThemedView>
-
-        <ThemedView style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
-            <View style={styles.buttonContent}>
-              <View style = {styles.PointEventContainer}>
-                <Image source={require('@/assets/images/shopping-cart.jpg')} style={styles.image} />
-                <Text style={styles.buttonText}>Harvey Norman</Text>
-              </View>
-              <View style = {styles.AddPointsContainer}>
-                <Text style={styles.AddPointsText}>+200</Text>
-                <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
-              </View>
-            </View>
-            <Text style={styles.AddPointsSecondLine}>15 May 2024</Text>
-            <Text style={styles.AddPointsSecondLine}>-$2579.00</Text>
-          </TouchableOpacity>
-        </ThemedView>
-
-
-        <ThemedView style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
-            <View style={styles.buttonContent}>
-              <View style = {styles.PointEventContainer}>
-                <Image source={require('@/assets/images/shopping-cart.jpg')} style={styles.image} />
-                <Text style={styles.buttonText}>Light Bulb Shop</Text>
+                <Image source={require('@/assets/images/train.jpg')} style={styles.image} />
+                <Text style={styles.buttonText}>Boon Lay - Raffles Place</Text>
               </View>
               <View style = {styles.AddPointsContainer}>
                 <Text style={styles.AddPointsText}>+2</Text>
                 <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
               </View>
             </View>
-            <Text style={styles.AddPointsSecondLine}>5 April 2024</Text>
-            <Text style={styles.AddPointsSecondLine}>-$3.40</Text>
+            <Text style={styles.AddPointsSecondLine}>31 May 2024</Text>
+            <Text style={styles.AddPointsSecondLine}>-$2.07</Text>
+          </TouchableOpacity>
+        </ThemedView>
+
+          <ThemedView style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <View style={styles.buttonContent}>
+              <View style = {styles.PointEventContainer}>
+                <Image source={require('@/assets/images/train.jpg')} style={styles.image} />
+                <Text style={styles.buttonText}>Raffles Place - Boon Lay</Text>
+              </View>
+              <View style = {styles.AddPointsContainer}>
+                <Text style={styles.AddPointsText}>+2</Text>
+                <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
+              </View>
+            </View>
+            <Text style={styles.AddPointsSecondLine}>31 May 2024</Text>
+            <Text style={styles.AddPointsSecondLine}>-$2.07</Text>
+          </TouchableOpacity>
+        </ThemedView>
+
+        <ThemedView style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <View style={styles.buttonContent}>
+              <View style = {styles.PointEventContainer}>
+                <Image source={require('@/assets/images/bus.jpg')} style={styles.image} />
+                <Text style={styles.buttonText}>Bus 174</Text>
+              </View>
+              <View style = {styles.AddPointsContainer}>
+                <Text style={styles.AddPointsText}>+1</Text>
+                <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
+              </View>
+            </View>
+            <Text style={styles.AddPointsSecondLine}>26 May 2024</Text>
+            <Text style={styles.AddPointsSecondLine}>-$1.75</Text>
+          </TouchableOpacity>
+        </ThemedView>
+
+        <ThemedView style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <View style={styles.buttonContent}>
+              <View style = {styles.PointEventContainer}>
+                <Image source={require('@/assets/images/bus.jpg')} style={styles.image} />
+                <Text style={styles.buttonText}>Bus 199</Text>
+              </View>
+              <View style = {styles.AddPointsContainer}>
+                <Text style={styles.AddPointsText}>+1</Text>
+                <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
+              </View>
+            </View>
+            <Text style={styles.AddPointsSecondLine}>25 May 2024</Text>
+            <Text style={styles.AddPointsSecondLine}>-$1.05</Text>
           </TouchableOpacity>
         </ThemedView>
       </ParallaxScrollView>
@@ -154,8 +167,6 @@ export default function HomeAppliancesScreen({ navigation }) {
     linkBoxContainer: {
       flexDirection: 'column',
       alignItems: 'center',
-      flex: 1,
-      padding: 10,
     },
     buttonContainer: {
       alignItems: 'center', 
@@ -200,7 +211,7 @@ export default function HomeAppliancesScreen({ navigation }) {
     },
     quoteText: {
       color: 'black',
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: 'bold',
       flexWrap: 'wrap',
       flexShrink: 1,
@@ -227,13 +238,7 @@ export default function HomeAppliancesScreen({ navigation }) {
     },
     SecondLine: {
       fontSize: 14, // Adjust font size as needed
-      right: 9
-    },
-    linkLine: {
-      color: 'blue',
-      fontSize: 14, // Adjust font size as needed
-      left: 8,
-      textDecorationLine: 'underline'
+      right: 16
     },
     image: {
       height: 30,
@@ -260,3 +265,4 @@ export default function HomeAppliancesScreen({ navigation }) {
       fontWeight: 'bold'
     }
   });
+  

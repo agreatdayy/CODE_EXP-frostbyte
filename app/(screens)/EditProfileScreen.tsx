@@ -1,90 +1,83 @@
-import { Image, StyleSheet, Platform, TouchableOpacity, Text, Alert, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, Text, View, TextInput, Button } from 'react-native';
 import React from 'react';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useNavigation } from '@react-navigation/native';
 
-export default function profile() {
+export default function EditProfileScreen() {
   const navigation = useNavigation();
-  
-  return (
+  let postalCode = 654321;
+
+  return ( 
     <View>
-      <View style={styles.topBox}>
-        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('EditProfileScreen')}>
+      <View style={styles.topButtonBox}>
+        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('profile')}>
           <View style = {styles.MyContainer}>
-            <Text style={styles.MyText}>Edit Profile</Text>
+            <Text style={styles.MyText}>Save Changes</Text>
           </View> 
         </TouchableOpacity>
       </View>
 
-      <ParallaxScrollView headerBackgroundColor={{ light: 'white', dark: 'white' }}
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: 'white', dark: 'white' }}
       headerImage={
         <Image
             source={require('@/assets/images/DinoMiles.jpg')}
             style={[styles.reactLogo, { alignSelf: 'center' }]}
         />
       }>
-
       
-
       <Image source={require('@/assets/images/user.jpg')} style={styles.user} />
-      <Text style={styles.userLabel}>ValenElectrons</Text>
 
       <View style={styles.profileDetails}>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Name:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>Xin Yuan, Lee</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Phone No.:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>8989 9898</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Birthday:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>01-01-2001</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Address:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>69 Haha Street 69 #06-09</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Postal code:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>654321</Text>
-        </View>
-        </View>
+      <View style={styles.detailContainer}>
+      <Text style={styles.detailLabel}>First name:</Text>
+        <View style={[styles.detailBox, styles.detailValueBox]}>
+        <Text style={styles.detailValue}>Xin Yuan</Text>
       </View>
-
-        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('LogOutScreen')}>
-          <View style = {styles.LogOutContainer}>
-            <Text style={styles.MyText}>Log out</Text>
-          </View> 
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('DeleteAccountScreen')}>
-          <View style = {styles.DeleteContainer}>
-            <Text style={styles.MyText}>Delete Account</Text>
-          </View> 
-        </TouchableOpacity>
-      </ParallaxScrollView>
+      </View>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailLabel}>Last name:</Text>
+        <View style={[styles.detailBox, styles.detailValueBox]}>
+        <Text style={styles.detailValue}>Lee</Text>
+      </View>
+      </View>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailLabel}>Username:</Text>
+        <View style={[styles.detailBox, styles.detailValueBox]}>
+        <Text style={styles.detailValue}>ValenElectrons</Text>
+      </View>
+      </View>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailLabel}>Phone No.:</Text>
+        <View style={[styles.detailBox, styles.detailValueBox]}>
+        <Text style={styles.detailValue}>+65 8989 9898</Text>
+      </View>
+      </View>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailLabel}>Date of Birth:</Text>
+        <View style={[styles.detailBox, styles.detailValueBox]}>
+        <Text style={styles.detailValue}>01-01-2001</Text>
+      </View>
+      </View>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailLabel}>Address:</Text>
+        <View style={[styles.detailBox, styles.detailValueBox]}>
+        <Text style={styles.detailValue}>69 Haha Street 69 #06-09</Text>
+      </View>
+      </View>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailLabel}>Postal Code:</Text>
+        <View style={[styles.detailBox, styles.detailValueBox]}>
+        <Text style={styles.detailValue}>654321</Text>
+      </View>
+      </View>
+    </View>
+    </ParallaxScrollView>
     </View>
   );
-
-    
 }
-
 
 const styles = StyleSheet.create({
     titleContainer: {
@@ -143,7 +136,7 @@ const styles = StyleSheet.create({
       alignSelf: 'stretch',
       marginVertical: 6,
     },
-    topBox: {
+    topButtonBox: {
       height: 45,
     },
     topbutton: {
@@ -252,7 +245,6 @@ const styles = StyleSheet.create({
       marginBottom: 10,
     },
     detailLabel: {
-      fontWeight: 'bold',
       marginRight: 5,
       top: 5
     },
@@ -302,4 +294,3 @@ const styles = StyleSheet.create({
       alignSelf: 'center',
     },
   });
-

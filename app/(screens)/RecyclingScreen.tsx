@@ -8,9 +8,6 @@ import { ThemedView } from '@/components/ThemedView';
 import {Linking} from 'react-native';
 
 
-export type RootStackParamList = {
-  screen: { id: string };
-};
 export default function RecyclingScreen({ navigation }) {
 
     return (
@@ -73,7 +70,7 @@ export default function RecyclingScreen({ navigation }) {
           <ThemedText type="title">Past Transactions</ThemedText>
         </ThemedView>
           <ThemedView style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('FoodAndBeverages')}>
+          <TouchableOpacity style={styles.button}>
             <View style={styles.buttonContent}>
               <View style = {styles.PointEventContainer}>
                 <Image source={require('@/assets/images/recycle-bin.jpg')} style={styles.image} />
@@ -245,12 +242,3 @@ export default function RecyclingScreen({ navigation }) {
     }
   });
   
-            
-
-
-
-
-
-
-
-    

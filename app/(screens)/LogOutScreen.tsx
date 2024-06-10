@@ -1,86 +1,57 @@
-import { Image, StyleSheet, Platform, TouchableOpacity, Text, Alert, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import React from 'react';
 
-// import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useNavigation } from '@react-navigation/native';
+import { ThemedText } from '@/components/ThemedText';
 
+export default function LogOutScreen() {
+  const navigation = useNavigation();
 
-export type RootStackParamList = {
-  screen: { id: string };
-};
-export default function PublicTransportScreen({ navigation }) {
-
-    return (
+  return ( 
       <ParallaxScrollView
-        headerBackgroundColor={{ light: 'white', dark: 'white' }}
-        headerImage={
+          headerBackgroundColor={{ light: 'white', dark: 'white' }}
+          headerImage={
           <Image
-            source={require('@/assets/images/DinoMiles.jpg')}
-            style={[styles.reactLogo, { alignSelf: 'center' }]}
+              source={require('@/assets/images/DinoMiles.jpg')}
+              style={[styles.reactLogo, { alignSelf: 'center' }]}
           />
-        }>
-      
-        <View style={styles.topbox}>
-          <View style={styles.topBoxContainer}>
-            <Text style={styles.bigText}>Get DinoMiles</Text>
-            <Text style={styles.SecondLine}>by recycling your bottles and cans</Text>
-          </View>
-          <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.bigDino} />
-        </View>
+          }>
+        
+        <ThemedView style={styles.titleContainer}>
+            <ThemedText type="title" style={styles.dinoMilesText}>DinoMiles</ThemedText>
+        </ThemedView>
 
-
-
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('rewards')}>
-            <View style={styles.contentContainer}>
-              <Text style={styles.buttonTextFirstLine}>1789</Text>
-              <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
-            </View>
-            <Text style={styles.buttonTextSecondLine}>My DinoMiles</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('rewards')}>
-            <View style={styles.contentContainer}>
-              <Text style={styles.buttonTextFirstLine}>2</Text>
-              <Image source={require('@/assets/images/ticket.jpg')} style={styles.image} />
-            </View>
-            <Text style={styles.buttonTextSecondLine}>My Rewards</Text>
-          </TouchableOpacity>
-        </View>
+        <Image source={require('@/assets/images/tick.jpg')} style={styles.user} />
 
         <ThemedView style={styles.titleContainer}>
-          <ThemedText type="title">Past Transactions</ThemedText>
+            <ThemedText type="title" style={styles.bottomText}>Successfully logged out!{"\n"}See you again!</ThemedText>
         </ThemedView>
-          <ThemedView style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('FoodAndBeverages')}>
-            <View style={styles.buttonContent}>
-              <View style = {styles.PointEventContainer}>
-                <Image source={require('@/assets/images/recycle-bin.jpg')} style={styles.image} />
-                <Text style={styles.buttonText}>RecycleNSave</Text>
-              </View>
-              <View style = {styles.AddPointsContainer}>
-                <Text style={styles.AddPointsText}>+2</Text>
-                <Image source={require('@/assets/images/DinoMiles.jpg')} style={styles.image} />
-              </View>
-            </View>
-            <Text style={styles.AddPointsSecondLine}>31 May 2024</Text>
-          </TouchableOpacity>
-        </ThemedView>
+        
       </ParallaxScrollView>
+  );
+}
 
-
-
-    );
-  }
-  
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     titleContainer: {
       flexDirection: 'row',
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start', 
+      alignItems: 'center',
+      justifyContent: 'center', 
       marginBottom: 15,
       gap: 8,
+    },
+    dinoMilesText: {
+        fontSize: 35,
+        fontWeight: 'bold',
+        color: 'black',
+        textAlign: 'center',
+    },
+    bottomText: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: 'black',
+        textAlign: 'center',
     },
     reactLogo: {
       alignItems: 'center',
@@ -119,7 +90,6 @@ export default function PublicTransportScreen({ navigation }) {
       alignItems: 'center',
     },
     buttonContainer: {
-      margin: 16, 
       alignItems: 'center', 
     },
     button: {
@@ -136,9 +106,6 @@ export default function PublicTransportScreen({ navigation }) {
       backgroundColor: 'white',
       paddingVertical: 20,
       paddingHorizontal: 40,
-      borderRadius: 4,
-      borderColor: 'black',
-      borderWidth: 1,
       alignSelf: 'stretch',
       marginVertical: 6,
       alignItems: 'center',
@@ -189,7 +156,7 @@ export default function PublicTransportScreen({ navigation }) {
     },
     SecondLine: {
       fontSize: 14, // Adjust font size as needed
-      left: 8
+      left: 5
     },
     image: {
       height: 30,
@@ -206,7 +173,7 @@ export default function PublicTransportScreen({ navigation }) {
         alignItems: 'center',
         //justifyContent: 'center', // Center the content horizontally
       },
-    AddPointsContainer: {
+      AddPointsContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
@@ -214,15 +181,79 @@ export default function PublicTransportScreen({ navigation }) {
     AddPointsText: {
       fontSize: 16,
       fontWeight: 'bold'
-    }
+    },
+    MyContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderColor: 'black',
+      borderWidth: 2,
+      borderRadius: 10,
+      padding: 5,
+      position: 'absolute',
+      top: 0,
+      right: 10
+    },
+    MyText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    margin:3,
+    },
+    profileDetails: {
+      marginTop: 20,
+      paddingHorizontal: 20,
+    },
+    detailContainer: {
+      flexDirection: 'row',
+      marginBottom: 10,
+    },
+    detailLabel: {
+      marginRight: 5,
+      top: 5
+    },
+    userLabel: {
+      marginRight: 5,
+      top: 5,
+      textAlign: 'center',
+      textAlignVertical: 'center'
+    },
+    detailValue: {
+      flex: 1,
+    },
+    detailBox: {
+      backgroundColor: '#E5E4E2',
+      padding: 5,
+      borderRadius: 5,
+    },
+    detailValueBox: {
+      backgroundColor: '#E5E4E2', // Add background color or any other styles
+      padding: 5,
+      borderRadius: 5,
+    },
+    LogOutContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderColor: 'black',
+      borderWidth: 2,
+      borderRadius: 10,
+      padding: 5,
+      position: 'absolute',
+    },
+    DeleteContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderColor: 'black',
+      backgroundColor: '#FF6666',
+      borderWidth: 2,
+      borderRadius: 10,
+      padding: 5,
+      position: 'absolute',
+    },
+    user: {
+      height: 150,
+      width: 150,
+      alignSelf: 'center',
+    },
   });
-  
-            
-
-
-
-
-
-
-
-    

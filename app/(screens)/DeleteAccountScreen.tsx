@@ -1,98 +1,57 @@
-import { Image, StyleSheet, Platform, TouchableOpacity, Text, Alert, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import React from 'react';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useNavigation } from '@react-navigation/native';
+import { ThemedText } from '@/components/ThemedText';
 
-export default function profile() {
+export default function DeleteAccountScreen() {
   const navigation = useNavigation();
-  
-  return (
-    <View>
-      <View style={styles.topBox}>
-        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('EditProfileScreen')}>
-          <View style = {styles.MyContainer}>
-            <Text style={styles.MyText}>Edit Profile</Text>
-          </View> 
-        </TouchableOpacity>
-      </View>
 
-      <ParallaxScrollView headerBackgroundColor={{ light: 'white', dark: 'white' }}
-      headerImage={
-        <Image
-            source={require('@/assets/images/DinoMiles.jpg')}
-            style={[styles.reactLogo, { alignSelf: 'center' }]}
-        />
-      }>
+  return ( 
+      <ParallaxScrollView
+          headerBackgroundColor={{ light: 'white', dark: 'white' }}
+          headerImage={
+          <Image
+              source={require('@/assets/images/DinoMiles.jpg')}
+              style={[styles.reactLogo, { alignSelf: 'center' }]}
+          />
+          }>
+        
+        <ThemedView style={styles.titleContainer}>
+            <ThemedText type="title" style={styles.dinoMilesText}>DinoMiles</ThemedText>
+        </ThemedView>
 
-      
+        <Image source={require('@/assets/images/tick.jpg')} style={styles.user} />
 
-      <Image source={require('@/assets/images/user.jpg')} style={styles.user} />
-      <Text style={styles.userLabel}>ValenElectrons</Text>
-
-      <View style={styles.profileDetails}>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Name:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>Xin Yuan, Lee</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Phone No.:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>8989 9898</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Birthday:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>01-01-2001</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Address:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>69 Haha Street 69 #06-09</Text>
-        </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailLabel}>Postal code:</Text>
-          <View style={[styles.detailBox, styles.detailValueBox]}>
-          <Text style={styles.detailValue}>654321</Text>
-        </View>
-        </View>
-      </View>
-
-        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('LogOutScreen')}>
-          <View style = {styles.LogOutContainer}>
-            <Text style={styles.MyText}>Log out</Text>
-          </View> 
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('DeleteAccountScreen')}>
-          <View style = {styles.DeleteContainer}>
-            <Text style={styles.MyText}>Delete Account</Text>
-          </View> 
-        </TouchableOpacity>
+        <ThemedView style={styles.titleContainer}>
+            <ThemedText type="title" style={styles.bottomText}>Account successfully deleted!{"\n"}Thank you :D</ThemedText>
+        </ThemedView>
+        
       </ParallaxScrollView>
-    </View>
   );
-
-    
 }
-
 
 const styles = StyleSheet.create({
     titleContainer: {
       flexDirection: 'row',
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start', 
+      alignItems: 'center',
+      justifyContent: 'center', 
       marginBottom: 15,
       gap: 8,
+    },
+    dinoMilesText: {
+        fontSize: 35,
+        fontWeight: 'bold',
+        color: 'black',
+        textAlign: 'center',
+    },
+    bottomText: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: 'black',
+        textAlign: 'center',
     },
     reactLogo: {
       alignItems: 'center',
@@ -142,9 +101,6 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       alignSelf: 'stretch',
       marginVertical: 6,
-    },
-    topBox: {
-      height: 45,
     },
     topbutton: {
       backgroundColor: 'white',
@@ -252,7 +208,6 @@ const styles = StyleSheet.create({
       marginBottom: 10,
     },
     detailLabel: {
-      fontWeight: 'bold',
       marginRight: 5,
       top: 5
     },
@@ -297,9 +252,8 @@ const styles = StyleSheet.create({
       position: 'absolute',
     },
     user: {
-      height: 90,
-      width: 90,
+      height: 150,
+      width: 150,
       alignSelf: 'center',
     },
   });
-

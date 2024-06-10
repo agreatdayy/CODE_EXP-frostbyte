@@ -12,10 +12,6 @@ export type RootStackParamList = {
 };
 
 export default function HomeScreen({ navigation }) {
-  // const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  // const handleButtonPress = (screen: string) => {
-  //   navigation.navigate('screen', {id: screen});
-  // };
   
   return (
     <ParallaxScrollView
@@ -62,7 +58,7 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.buttonText}>Home Appliances</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PublicTransport')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Transport')}>
         <View style={styles.buttonContent}>
             <Ionicons name="bus-outline" size={24} color="black" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Public Transport</Text>
