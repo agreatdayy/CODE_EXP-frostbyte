@@ -20,12 +20,13 @@ import MyRewardsScreen from '../(screens)/MyRewardsScreen';
 import EditProfileScreen from '../(screens)/EditProfileScreen';
 import LogOutScreen from '../(screens)/LogOutScreen';
 import DeleteAccountScreen from '../(screens)/DeleteAccountScreen';
+import SignUpScreen from '../(screens)/SignUpScreen';
+import LogInScreen from '../(screens)/LogInScreen';
 
 const Stack = createStackNavigator();
 
 function App() {
   
-
   return (
     // <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -99,6 +100,16 @@ function App() {
           name="DeleteAccountScreen" 
           component={DeleteAccountScreen} 
           initialParams={{id: 'DeleteAccountScreen'}}
+        />
+        <Stack.Screen 
+          name="SignUpScreen" 
+          component={SignUpScreen} 
+          initialParams={{id: 'SignUpScreen'}}
+        />
+        <Stack.Screen 
+          name="LogInScreen" 
+          component={LogInScreen} 
+          initialParams={{id: 'LogInScreen'}}
         />
       </Stack.Navigator>
     // </NavigationContainer>

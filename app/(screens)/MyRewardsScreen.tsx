@@ -17,6 +17,10 @@ export default function MyRewardsScreen({ navigation }) {
           style={[styles.reactLogo, { alignSelf: 'center' }]}
       />
       }>
+
+      <ThemedView style={styles.titleContainer}>
+          <ThemedText type="title">Available Rewards</ThemedText>
+      </ThemedView>
   
       <ThemedView style={styles.buttonContainer}>
               <TouchableOpacity style={styles.button}>

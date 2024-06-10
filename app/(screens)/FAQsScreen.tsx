@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Platform, TouchableOpacity, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
 const Collapsible = ({ title, children, isCollapsed, onToggle }) => {
     return (
@@ -29,6 +30,8 @@ export default function FAQsScreen({ navigation }) {
     };
     
     return (
+      <ParallaxScrollView headerBackgroundColor={{ light: 'white', dark: 'white' }}>
+
         <View style={styles.container}>
           <View style={styles.topbox}>
             <View style={styles.topBoxContainer}>
@@ -75,8 +78,9 @@ export default function FAQsScreen({ navigation }) {
             <Text style={styles.FAQAnswerText}>No, unfortunately, DinoMiles are not transferrable.</Text>
           </Collapsible>
         </View>
-      );
-    }
+      </ParallaxScrollView>
+    );
+  }
     
 
 const styles = StyleSheet.create({

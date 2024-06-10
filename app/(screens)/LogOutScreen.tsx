@@ -10,14 +10,13 @@ export default function LogOutScreen() {
   const navigation = useNavigation();
 
   return ( 
-      <ParallaxScrollView
-          headerBackgroundColor={{ light: 'white', dark: 'white' }}
-          headerImage={
-          <Image
-              source={require('@/assets/images/DinoMiles.jpg')}
-              style={[styles.reactLogo, { alignSelf: 'center' }]}
-          />
-          }>
+    <ParallaxScrollView headerBackgroundColor={{ light: 'white', dark: 'white' }}>
+      <View style={styles.container}>
+      <Image 
+        source={require('@/assets/images/DinoMiles.jpg')} 
+        style={styles.homeDino} 
+      />
+      </View>
         
         <ThemedView style={styles.titleContainer}>
             <ThemedText type="title" style={styles.dinoMilesText}>DinoMiles</ThemedText>
@@ -255,5 +254,12 @@ const styles = StyleSheet.create({
       height: 150,
       width: 150,
       alignSelf: 'center',
+    },
+    homeDino: {
+      width: 200, 
+      height: 200, 
+      marginLeft: 5, 
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   });

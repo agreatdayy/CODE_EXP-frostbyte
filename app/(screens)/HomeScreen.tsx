@@ -14,14 +14,19 @@ export type RootStackParamList = {
 export default function HomeScreen({ navigation }) {
   
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: 'white', dark: 'white' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/DinoMiles.jpg')}
-          style={[styles.reactLogo, { alignSelf: 'center' }]}
-        />
-      }>
+    <ParallaxScrollView headerBackgroundColor={{ light: 'white', dark: 'white' }}>
+      <View style={styles.container}>
+      <Image 
+        source={require('@/assets/images/DinoMiles.jpg')} 
+        style={styles.homeDino} 
+      />
+      </View>
+
+      <View style={styles.titleContainer}>
+        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('SignUpScreen')}>
+            <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
       
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Hello, Xin Yuan!</ThemedText>
@@ -160,5 +165,12 @@ const styles = StyleSheet.create({
     width: 30, 
     height: 25, 
     marginLeft: 5, 
+  },
+  homeDino: {
+    width: 200, 
+    height: 200, 
+    marginLeft: 5, 
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

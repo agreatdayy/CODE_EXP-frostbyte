@@ -3,31 +3,36 @@ import React, { useState } from 'react';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { useNavigation } from '@react-navigation/native';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
 
-export default function EditProfileScreen() {
+export default function SignUpScreen() {
   const navigation = useNavigation();
 
-  const [firstName, setFirstName] = useState('Xin Yuan');
-  const [lastName, setLastName] = useState('Lee');
-  const [username, setUsername] = useState('ValenElectrons');
-  const [email, setEmail] = useState('Xinyuan@gmail.com');
-  const [password, setPassword] = useState('************');
-  const [phoneNumber, setPhoneNumber] = useState('+65 8989 9898');
-  const [dateOfBirth, setDateOfBirth] = useState('01-01-2001');
-  const [address, setAddress] = useState('69 Haha Street 69 #06-09');
-  const [postalCode, setPostalCode] = useState('654321');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [address, setAddress] = useState('');
+  const [postalCode, setPostalCode] = useState('');
   return ( 
     <ParallaxScrollView
         headerBackgroundColor={{ light: 'white', dark: 'white' }}>
-        
     
-      <View style={styles.topButtonBox}>
-        <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('profile')}>
-            <Text style={styles.MyText}>Save Changes</Text>
-        </TouchableOpacity>
-      </View>
+    <View style={styles.container}>
+      <Image 
+        source={require('@/assets/images/DinoMiles.jpg')} 
+        style={styles.homeDino} 
+      />
+    </View>
+        
+    <ThemedView style={styles.titleContainer}>
+        <ThemedText type="title" style={styles.dinoMilesText}>DinoMiles</ThemedText>
+    </ThemedView>
 
-      <Image source={require('@/assets/images/user.jpg')} style={styles.user} />
 
         <View style={styles.profileDetails}>
           <View style={styles.detailContainer}>
@@ -103,11 +108,29 @@ export default function EditProfileScreen() {
             />
           </View>
         </View>
-      </ParallaxScrollView>
+
+    <TouchableOpacity style={[styles.button, styles.logOutButton]} onPress={() => navigation.navigate('LogInScreen')}>
+        <Text style={styles.logOutText}>Sign Up</Text>
+    </TouchableOpacity>
+
+    </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+    titleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center', 
+        marginBottom: 15,
+        gap: 8,
+    },
+    dinoMilesText: {
+        fontSize: 35,
+        fontWeight: 'bold',
+        color: 'black',
+        textAlign: 'center',
+    },
     topButtonBox: {
       alignItems: 'flex-end',
       padding: 10,
@@ -152,5 +175,33 @@ const styles = StyleSheet.create({
       height: 90,
       width: 90,
       alignSelf: 'center',
+    },
+    button: {
+        marginHorizontal: 20,
+        marginVertical: 10,
+        paddingVertical: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+      },
+    logOutButton: {
+        backgroundColor: '#29AB87',
+    },
+    logOutText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'black',
+    },
+    homeDino: {
+        width: 200, 
+        height: 200, 
+        marginLeft: 5, 
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '100%',
+        alignSelf: 'center',
     },
   });

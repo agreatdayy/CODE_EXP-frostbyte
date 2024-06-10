@@ -3,13 +3,16 @@ import React from 'react';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Rewards() {
   const navigation = useNavigation();
 
   return ( 
-    <View>
+    <ParallaxScrollView
+          headerBackgroundColor={{ light: 'white', dark: 'white' }}>
+
       <View style={styles.topBox}>
         <TouchableOpacity style={styles.topbutton} onPress={() => navigation.navigate('MyRewardsScreen')}>
           <View style = {styles.MyContainer}>
@@ -18,14 +21,11 @@ export default function Rewards() {
         </TouchableOpacity>
       </View>
       
-      <ParallaxScrollView
-          headerBackgroundColor={{ light: 'white', dark: 'white' }}
-          headerImage={
-          <Image
-              source={require('@/assets/images/DinoMiles.jpg')}
-              style={[styles.reactLogo, { alignSelf: 'center' }]}
-          />
-          }>
+      
+
+      <ThemedView style={styles.titleContainer}>
+          <ThemedText type="title">Rewards Catalogue</ThemedText>
+      </ThemedView>
       
     <ThemedView style={styles.buttonContainer}>
       <TouchableOpacity style={styles.button}>
@@ -99,7 +99,6 @@ export default function Rewards() {
       </TouchableOpacity>
     </ThemedView>
       </ParallaxScrollView>
-    </View>
   );
 }
 
@@ -245,7 +244,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      backgroundColor: '#29AB87',
+      backgroundColor: '#59C591',
       borderRadius: 10,
       padding: 5
     },
@@ -257,7 +256,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    backgroundColor: '#29AB87',
+    backgroundColor: '#59C591',
     borderRadius: 10,
     padding: 5,
     position: 'absolute',
