@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "670077007098",
+    "project_id": "dinomiles-c7524",
+    "storage_bucket": "dinomiles-c7524.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670077007098:android:b7ddf51c005afd9bfe8543",
+        "android_client_info": {
+          "package_name": "DinoMiles.frostbyte"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd3JQj3sGDnBhwi90g9ltJnA6ih8UIhzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
